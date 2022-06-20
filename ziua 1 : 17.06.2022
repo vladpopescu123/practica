@@ -1,0 +1,49 @@
+1)Static aint always noisy: strings static | egrep pico
+
+
+2)Tab, tab attack :	unzip Addadshashanammu.zip
+		strings Addadshashanammu/Almurbalarammi/Ashalmimilkala/Assurnabitashpi/Maelkashishi/Onnissiralis/Ularradallaku/fang-of-haynekhtnamet | egrep pico
+
+
+3)Lets Warm Up : 0x70 este corespondent pentru litera p
+
+4)Warmed Up : 0x3D este 61 in decimal
+
+5) strings it : strings strings | egrep pico
+
+6)2Warm : 42=101010
+
+7)Bases: bDNhcm5fdGgzX3IwcDM1 = l3arn_th3_r0p35 BASE 64
+
+8)First Grep :  strings file.1 | egrep pico
+
+9)Codebook : python3 code.py
+
+10)convertme.py : 78 in binar este 1000110
+
+11)fixme1.py : Eroare de identare
+
+12)fixme2.py : Eroare de sintaxa : trebuie = = la if
+
+13)Glitch Cat : nc saturn.picoctf.net 53933
+
+14)HashingJobApp: nc saturn.picoctf.net 63116
+
+15)runme.py : python3 runme.py
+
+16)Serpentine : python3 serpentine.py 
+	Am inlocuit print ul de la elif choice == ' b' cu apelul functiei print_flag()
+
+17)First Find : 	unzip files.zip
+		cat files/adequate_books/more_books/.secret/deeper_secrets/deepest_secrets/uber-secret.txt 
+
+18)Big Zip : 	unzip big-zip-files.zip 
+		cd big-zip-files/
+		ls | egrep -r pico
+
+19)Based : nc jupiter.challenges.picoctf.org 29221
+	Am convertit din binar in text 01101100 01101001 01101101 01100101
+	Am converiti din octal in text 143 150 141 151 162
+	Am convertit din hexa in text 6c616d70
+
+20)plumbing : nc jupiter.challenges.picoctf.org 7480 | egrep pico
