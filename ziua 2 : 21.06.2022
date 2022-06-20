@@ -1,0 +1,124 @@
+21)mus1c: Am convertit textul in decimal folosind code rockstar
+	Am converit nr din decimal in text
+
+22)The Numbers: fiecare numar din poza reprezinta indicele literei din alfabet
+
+23)Lookey here: cat anthem.flag.txt | egrep pico
+
+24)Inspect HTML : curl http://saturn.picoctf.net:49386/ | egrep pico
+
+25)basic-file-exploit : vlad@ubuntu:~$ nc saturn.picoctf.net 52681
+		Hi, welcome to my echo chamber!
+		Type '1' to enter a phrase into our database
+		Type '2' to echo a phrase in our database
+		Type '3' to exit the program
+		a
+		a
+		Please put in a valid number
+		a
+		a
+		Please put in a valid number
+		a
+		a
+		Please put in a valid number
+		a
+		a
+		Please put in a valid number
+		1
+		1
+		Please enter your data:
+		2
+		2
+		Please enter the length of your data:
+		1 
+		1
+		Your entry number is: 1
+		Write successful, would you like to do anything else?
+		2
+		2
+		Please enter the entry number of your data:
+		a
+		a
+		picoCTF{M4K3_5UR3_70_CH3CK_Y0UR_1NPU75_E0394EC0}
+
+
+26) buffer overflow 0 : 	vlad@ubuntu:~$ nc saturn.picoctf.net 65355
+			input: 21312312312312312312312123123123123
+			picoCTF{ov3rfl0ws_ar3nt_that_bad_34d6b87f}
+
+27)file-run1 : 	vlad@ubuntu:~$ chmod u+x run
+		vlad@ubuntu:~$ ./run
+		The flag is: picoCTF{U51N6_Y0Ur_F1r57_F113_e5559d46}
+
+28)file-run2 : 	vlad@ubuntu:~$ chmod u+x run.1
+		vlad@ubuntu:~$ ./run.1				
+		vlad@ubuntu:~$ ./run.1 Hello!
+		The flag is: picoCTF{F1r57_4rgum3n7_96f2195f}
+
+29)GDB Test Drive : 		$ chmod +x gdbme
+			$ gdb gdbme
+			(gdb) layout asm
+			(gdb) break *(main+99)
+			(gdb) run
+			(gdb) jump *(main+104)
+
+30)patchme.py : 	vlad@ubuntu:~$ gedit patchme.flag.py &
+		python3 patchme.flag.py 
+		Please enter correct password for flag: 111
+		Welcome back... your flag, user:
+		picoCTF{p47ch1ng_l1f3_h4ck_f01eabfa}
+
+31)PW Crack 1: 	vlad@ubuntu:~$ cat level1.py | egrep user_pw
+   		 user_pw = input("Please enter correct password for flag: ")
+   		 if( user_pw == "691d"):
+      		 decryption = str_xor(flag_enc.decode(), user_pw)
+		vlad@ubuntu:~$ python3 level1.py 
+		Please enter correct password for flag: 691d
+		Welcome back... your flag, user:
+		picoCTF{545h_r1ng1ng_56891419}
+
+
+32)PW Crack 2:	vlad@ubuntu:~$cat level2.py | egrep user_pw
+  		 user_pw = input("Please enter correct password for flag: ")
+    		if( user_pw == chr(0x34) + chr(0x65) + chr(0x63) + chr(0x39) ):
+        		decryption = str_xor(flag_enc.decode(), user_pw)
+		vlad@ubuntu:~$ echo 34,65,63,39 | xxd -r -p
+		4ec9
+		vlad@ubuntu:~$ python3 level2.py
+		Please enter correct password for flag: 4ec9
+		Welcome back... your flag, user:
+		picoCTF{tr45h_51ng1ng_9701e681}
+
+
+33)crackme-py : 	gedit crackme.py &
+		python3 crackme.py 
+		picoCTF{1|\/|_4_p34|\|ut_502b984b}
+
+34)Magikarp Ground Mission :	vlad@ubuntu:~$ ssh ctf-player@venus.picoctf.net -p 50789
+			ctf-player@pico-chall$ ls
+			1of3.flag.txt  instructions-to-2of3.txt
+			ctf-player@pico-chall$ cat 1of3.flag.txt 
+			picoCTF{xxsh_
+			ctf-player@pico-chall$ ^C
+			ctf-player@pico-chall$ cat instructions-to-2of3.txt 
+			Next, go to the root of all things, more succinctly `/`
+			ctf-player@pico-chall$ cd ..
+			ctf-player@pico-chall$ ls
+			2of3.flag.txt  bin  boot  dev  etc  home  instructions-to-3of3.txt  lib  lib64	media  mnt  opt  proc  root  run  sbin	srv  sys  tmp  usr  var
+			ctf-player@pico-chall$ cat 2of3.flag.txt 
+			0ut_0f_\/\/4t3r_
+			ctf-player@pico-chall$ ^C
+			ctf-player@pico-chall$ cd ..
+			ctf-player@pico-chall$ ls
+			2of3.flag.txt  bin  boot  dev  etc  home  instructions-to-3of3.txt  lib  lib64	media  mnt  opt  proc  root  run  sbin	srv  sys  tmp  usr  var
+			ctf-player@pico-chall$ cat instructions-to-3of3.txt 		
+			Lastly, ctf-player, go home... more succinctly `~`
+			ctf-player@pico-chall$ cd ~
+			ctf-player@pico-chall$ ls
+			3of3.flag.txt  drop-in
+			ctf-player@pico-chall$ cat 3of3.flag.txt 
+			3ca613a1}
+
+
+35) Glory of the Garden:	vlad@ubuntu:~$ strings garden.jpg | egrep pico
+			Here is a flag "picoCTF{more_than_m33ts_the_3y3657BaB2C}"
