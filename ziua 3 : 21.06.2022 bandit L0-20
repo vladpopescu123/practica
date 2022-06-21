@@ -1,0 +1,182 @@
+level 0 : 	boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+		cat readme
+
+
+level 1 :	CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+		bandit1@bandit:~$ cat ./-
+
+
+
+level 2 :	UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+		bandit2@bandit:~$ cat "spaces in this filename"
+
+level 3 : 	pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+		bandit3@bandit:~$ cd inhere
+		bandit3@bandit:~/inhere$ cat ./.hidden
+
+
+level 4 :	koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+		bandit4@bandit:~$ file inhere/*
+		inhere/-file00: data
+		inhere/-file01: data
+		inhere/-file02: data
+		inhere/-file03: data
+		inhere/-file04: data
+		inhere/-file05: data
+		inhere/-file06: data
+		inhere/-file07: ASCII text
+		inhere/-file08: data
+		inhere/-file09: data
+		bandit4@bandit:~$ cat /home/bandit4/inhere/-file07
+
+
+level 5 : 	DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+		bandit5@bandit:~$ find . -type f -size 1033c -not  -executable
+		./inhere/maybehere07/.file2
+		bandit5@bandit:~$ cat /home/bandit5/./inhere/maybehere07/.file2
+
+
+
+level 6 : 	HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+		bandit6@bandit:~$ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+		/var/lib/dpkg/info/bandit7.password
+		bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
+
+
+
+level 7 : 	cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+		bandit7@bandit:~$ cat data.txt | egrep "millionth*"
+		millionth	cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+
+
+level 8 :	UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+		bandit8@bandit:~$ cat data.txt | sort | uniq -u
+
+	
+level 9 : 	truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+		bandit9@bandit:~$ strings data.txt | egrep "=+"
+		========== the*2i"4
+		=:G e
+		========== password
+		<I=zsGi
+		Z)========== is
+		A=|t&E
+		Zdb=
+		c^ LAh=3G
+		*SF=s
+		&========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+		S=A.H&^
+
+
+level10 : 	IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+		bandit10@bandit:~$ cat data.txt | base64 -d
+		The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
+
+
+level 11 :	5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+		bandit11@bandit:~$ cat data.txt | tr [a-mn-zA-MN-Z] [n-za-mN-ZA-M]
+		The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+
+
+
+level 12 :	8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+		bandit12@bandit:~$ mkdir /tmp/vlad
+		bandit12@bandit:~$ cat data.txt | xxd -r > /tmp/vlad/data
+		bandit12@bandit:~$ cd /tmp/vlad
+		bandit12@bandit:/tmp/vlad$ file data
+		data: gzip compressed data, was "data2.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+		bandit12@bandit:/tmp/vlad$ mv data data.gz
+		bandit12@bandit:/tmp/vlad$ gzip -d data.gz
+		bandit12@bandit:/tmp/vlad$ file data
+		data: bzip2 compressed data, block size = 900k
+		bandit12@bandit:/tmp/vlad$ mv data data.bz
+		bandit12@bandit:/tmp/vlad$ bzip2 -d data.bz
+		bandit12@bandit:/tmp/vlad$ file data
+		data: gzip compressed data, was "data4.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+		bandit12@bandit:/tmp/vlad$ mv data data.gz
+		bandit12@bandit:/tmp/vlad$ gzip -d data.gz mv
+		bandit12@bandit:/tmp/vlad$ file data
+		data: POSIX tar archive (GNU)
+		bandit12@bandit:/tmp/vlad$ mv data data.tar
+		bandit12@bandit:/tmp/vlad$ tar -xf data.tar
+		bandit12@bandit:/tmp/vlad$ file data5.bin
+		bandit12@bandit:/tmp/vlad$ mv data5.bin data5.tar
+		bandit12@bandit:/tmp/vlad$ tar -xf data5.tar
+		data6.bin: bzip2 compressed data, block size = 900k
+		bandit12@bandit:/tmp/vlad$ mv data6.bin data6.bz
+		bandit12@bandit:/tmp/vlad$ bzip2 -d data6.bz
+		bandit12@bandit:/tmp/vlad$ file data6
+		data6: POSIX tar archive (GNU)
+		bandit12@bandit:/tmp/vlad$ mv data6 data6.tar
+		bandit12@bandit:/tmp/vlad$ tar -xf data6.tar
+		bandit12@bandit:/tmp/vlad$ file data8.bin
+		data8.bin: gzip compressed data, was "data9.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+		bandit12@bandit:/tmp/vlad$ mv data8.bin data8.gz
+		bandit12@bandit:/tmp/vlad$ gzip -d data8.gz
+		bandit12@bandit:/tmp/vlad$ file data8
+		data8: ASCII text
+		bandit12@bandit:/tmp/vlad$ cat data8
+		The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+		
+
+
+level13 :	 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+		bandit13@bandit:~$ ssh bandit14@localhost -i sshkey.private
+		bandit14@bandit:~$ cat  /etc/bandit_pass/bandit14
+
+
+level 14 :	BfMYroe26WYalil77FoDi9qh59eK5xNr
+		bandit14@bandit:~$ echo "4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e" | nc localhost 30000
+		Correct!
+		BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+
+
+level 15 : 	cluFn7wTiGryunymYOu4RcffSxQluehd
+		bandit15@bandit:~$ echo "BfMYroe26WYalil77FoDi9qh59eK5xNr" | openssl s_client -connect localhost:30001 -ign_eof
+
+
+level 16:	xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+		bandit16@bandit:~$ nmap -sV -T4 -p 31000-32000 localhost
+		PORT      STATE    SERVICE     VERSION
+		31046/tcp open     echo
+		31518/tcp filtered unknown
+		31691/tcp open     echo
+		31790/tcp open     ssl/unknown
+		31960/tcp open     echo
+		bandit16@bandit:~$ openssl s_client -connect localhost:31790
+		bandit16@bandit:~$ cd /tmp/vlad
+		bandit16@bandit:/tmp/vlad$ touch private
+		bandit16@bandit:/tmp/vlad$ vim private
+		bandit16@bandit:/tmp/vlad$ mv private private.key
+		bandit16@bandit:/tmp/vlad$ chmod 400 private.key
+		bandit16@bandit:/tmp/vlad$ ssh -i private.key bandit17@localhost
+		bandit17@bandit:~$ cat /etc/bandit_pass/bandit17
+	
+
+level17:	kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+		bandit17@bandit:~$ diff --suppress-common-lines passwords.new passwords.old
+
+
+level 18:	IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+		vlad@ubuntu:~$ ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat ~/readme"
+
+level 19:	GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+		bandit19@bandit:~$ ls -l
+		total 8
+		-rwsr-x--- 1 bandit20 bandit19 7296 May  7  2020 bandit20-do
+		bandit19@bandit:~$ cat /etc/bandit_pass/bandit20
+		cat: /etc/bandit_pass/bandit20: Permission denied
+		bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
+
+
+level 20:	gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+		bandit20@bandit:~$ ls
+		suconnect
+		bandit20@bandit:~$ echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -l -p 1111 &
+		bandit20@bandit:~$ ./suconnect 1111
+		Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+		Password matches, sending next password
+		gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
