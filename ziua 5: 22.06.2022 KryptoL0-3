@@ -1,0 +1,39 @@
+level 1 :	KRYPTONISGREAT
+		vlad@ubuntu:~$ gedit b64
+		vlad@ubuntu:~$ base64 -d b64
+		KRYPTONISGREAT
+		krypton1@krypton:~$ cd  /krypton/
+		krypton1@krypton:/krypton$ ls
+		krypton1  krypton2  krypton3  krypton4  krypton5  krypton6
+
+
+level 2 :	ROTTEN
+		krypton1@krypton:/krypton$ cd krypton1
+		krypton1@krypton:/krypton/krypton1$ ls
+		krypton2  README
+		krypton1@krypton:/krypton/krypton1$ cat krypton2 
+		YRIRY GJB CNFFJBEQ EBGGRA
+		krypton1@krypton:/krypton/krypton1$cat krypton2  | tr [a-mn-zA-MN-Z] [n-za-mN-ZA-M]
+		LEVEL TWO PASSWORD ROTTEN
+
+
+level 3 :	CAESARISEASY
+
+		rypton2@krypton:/krypton$ cd krypton2
+		krypton2@krypton:/krypton/krypton2$ ls
+		encrypt  keyfile.dat  krypton3  README
+		krypton2@krypton:/krypton/krypton2$ mktemp -d
+		/tmp/tmp.r0nhTWXHWZ
+		krypton2@krypton:/krypton/krypton2$ cd /tmp/tmp.r0nhTWXHWZ
+		krypton2@krypton:/tmp/tmp.r0nhTWXHWZ$ ln -s /krypton/krypton2/keyfile.dat 
+		krypton2@krypton:/tmp/tmp.r0nhTWXHWZ$ ls
+		keyfile.dat
+		krypton2@krypton:/tmp/tmp.r0nhTWXHWZ$ chmod 777 .
+		krypton2@krypton:/tmp/tmp.r0nhTWXHWZ$ vi temp
+		krypton2@krypton:/tmp/tmp.r0nhTWXHWZ$ cat temp
+		ABCDEFGHIJKLMNOPQRSTUVWXYZ
+		krypton2@krypton:/tmp/tmp.r0nhTWXHWZ$ /krypton/krypton2/encrypt temp
+		krypton2@krypton:/tmp/tmp.r0nhTWXHWZ$ cat ciphertext 
+		MNOPQRSTUVWXYZABCDEFGHIJKL
+		krypton2@krypton:/tmp/tmp.r0nhTWXHWZ$ cat /krypton/krypton2/krypton3 | tr [M-ZA-L] [A-LM-Z]
+
