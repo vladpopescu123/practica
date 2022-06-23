@@ -105,3 +105,11 @@ public class SafeOpener {
 
 		vlad@ubuntu:~$ ./message.sh 
 		R0UND_N_R0UND_ADD17EC2
+		
+		
+10) Search source : picoCTF{1nsp3ti0n_0f_w3bpag3s_ec95fa49}
+		vlad@ubuntu:~$ cat index.html.9 | egrep style
+		vlad@ubuntu:~$ wget http://saturn.picoctf.net:50761/css/style.css
+		vlad@ubuntu:~$ cat style.css | egrep pico
+		/** banner_main picoCTF{1nsp3ti0n_0f_w3bpag3s_ec95fa49} **/
+	
