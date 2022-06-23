@@ -1,0 +1,107 @@
+1)substitution0 : The flag is: picoCTF{5UB5717U710N_3V0LU710N_03055505}
+		cat message.txt | tr [QWITJSYHXCNDFERMUKGOPVALBZqwitjsyhxcndfermukgopvalbz] [A-Za-z]
+
+2)extensions :     picoCTF{now_you_know_about_extensions}
+		vlad@ubuntu:~$ file flag.txt
+		flag.txt: PNG image data, 1697 x 608, 8-bit/color RGB, non-interlaced
+		vlad@ubuntu:~$ cp flag.txt ext.png
+		vlad@ubuntu:~$ ls -l ext.png 
+		-rw-rw-r-- 1 vlad vlad 9984 Jun 23 00:07 ext.png
+		vlad@ubuntu:~$ xdg-open ext.png 
+
+3)what lies within : 	picoCTF{h1d1ng_1n_th3_b1t5}
+
+4)Safe Opener : picoCTF{pl3as3_l3t_m3_1nt0_th3_saf3}
+		vlad@ubuntu:~$ cat SafeOpener.java
+import java.io.*;
+import java.util.*;  
+public class SafeOpener {
+    public static void main(String args[]) throws IOException {
+        BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+        Base64.Encoder encoder = Base64.getEncoder();
+        String encodedkey = "";
+        String key = "";
+        int i = 0;
+        boolean isOpen;
+        
+
+        while (i < 3) {
+            System.out.print("Enter password for the safe: ");
+            key = keyboard.readLine();
+
+            encodedkey = encoder.encodeToString(key.getBytes());
+            System.out.println(encodedkey);
+              
+            isOpen = openSafe(encodedkey);
+            if (!isOpen) {
+                System.out.println("You have  " + (2 - i) + " attempt(s) left");
+                i++;
+                continue;
+            }
+            break;
+        }
+    }
+    
+    public static boolean openSafe(String password) {
+        String encodedkey = "cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz";
+        
+        if (password.equals(encodedkey)) {
+            System.out.println("Sesame open");
+            return true;
+        }
+        else {
+            System.out.println("Password is incorrect\n");
+            return false;
+        }
+    }
+}
+		vlad@ubuntu:~$ echo "cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz" | base64 -d
+		pl3as3_l3t_m3_1nt0_th3_saf3
+
+
+
+5)Local Authority : 	picoCTF{j5_15_7r4n5p4r3n7_05df90c8}
+	View page source --> login.php --> secure.js
+	Gasim:
+		function checkPassword(username, password)
+		{
+ 			 if( username === 'admin' && password === 'strongPassword098765' )
+  			{
+  				  return true;
+  			}
+ 			 else
+  			{
+  			  return false;
+ 			 }
+		}
+
+
+6)13: 	picoCTF{not_too_bad_of_a_problem}
+		vlad@ubuntu:~$ echo cvpbPGS{abg_gbb_onq_bs_n_ceboyrz} | tr [a-mn-zA-MN-Z] [n-za-mN-ZA-M]
+		picoCTF{not_too_bad_of_a_problem}
+
+7)login:	picoCTF{53rv3r_53rv3r_53rv3r_53rv3r_53rv3r}
+
+		View source code --> index.js
+		Gasim: Your flag is ${ato(t.p)}
+		"cGljb0NURns1M3J2M3JfNTNydjNyXzUzcnYzcl81M3J2M3JfNTNydjNyfQ"==t.p
+		vlad@ubuntu:~$ echo "cGljb0NURns1M3J2M3JfNTNydjNyXzUzcnYzcl81M3J2M3JfNTNydjNyfQ"! | base64 -d
+		picoCTF{53rv3r_53rv3r_53rv3r_53rv3r_53rv3r}
+
+
+8)basic-mod1: picoCTF{R0UND_N_R0UND_ADD17EC2}
+		Am facut scriptul :
+			#!/bin/bash
+			v=(91 322 57 124 40 406 272 147 239 285 353 272 77 110 296 262 299 323 255 337 150 102 )
+			alph=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 _ )
+
+			for i in ${v[*]}
+			do
+				r=`expr $i % 37`
+				afis+=${alph[$r]}
+			done
+			echo $afis
+		
+
+		vlad@ubuntu:~$ ./message.sh 
+		R0UND_N_R0UND_ADD17EC2
